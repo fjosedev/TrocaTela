@@ -1,5 +1,6 @@
 package dev.fernandojose.trocatela
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -19,5 +20,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun btLancamentoOnClick(view: View) {}
+    fun btLancamentoOnClick(view: View) {
+        val intent = Intent(this, LancamentoActivity::class.java)
+        startActivity(intent)
+    }
 }
