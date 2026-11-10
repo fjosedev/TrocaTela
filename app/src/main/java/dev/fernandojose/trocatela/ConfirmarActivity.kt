@@ -1,5 +1,7 @@
 package dev.fernandojose.trocatela
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -31,5 +33,13 @@ class ConfirmarActivity : AppCompatActivity() {
     tvValor.text = intent.getStringExtra("valor")
   }
 
-  fun btEnviarSMS(view: View) {}
+  fun btEnviarSMS(view: View) {
+    val phone_dest = "+5584999328571"
+    val sms_body = "Cod: ${tvCod.text} Qtd: ${tvQtd.text} Valor: ${tvValor.text}"
+
+    val intent = Intent(Intent.ACTION_VIEW)
+    intent.setData(Uri.parse("sms:" + phone_dest))
+    intent.putExtra("sms_body", sms_body)
+    startActivity(intent)
+  }
 }
